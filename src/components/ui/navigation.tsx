@@ -23,7 +23,7 @@ const Navigation: React.FC<NavigationProps> = ({ className }) => {
   return (
     <nav
       className={cn(
-        'portfolio-container sticky left-0 top-0 px-4 py-6',
+        'portfolio-container sticky left-0 top-0 px-4 py-6 backdrop-blur-lg',
         className
       )}
     >
@@ -46,7 +46,7 @@ const Navigation: React.FC<NavigationProps> = ({ className }) => {
           </div>
         </Link>
 
-        <div className="hidden items-center space-x-8 rounded-md bg-accent/70 p-2 md:flex md:px-4 md:py-2">
+        <div className="hidden items-center space-x-8 rounded-md bg-muted p-2 md:flex md:px-4 md:py-2">
           <div className="flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
