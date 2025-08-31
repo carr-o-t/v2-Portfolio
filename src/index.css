@@ -105,6 +105,9 @@
     --text-5xl: 3rem;
     --text-6xl: 3.75rem;
 
+    /* Nav height */
+    --nav-height: 88px;
+
     --sidebar-background: 0 0% 98%;
 
     --sidebar-foreground: 240 5.3% 26.1%;
