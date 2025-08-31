@@ -48,6 +48,24 @@ export default {
           ring: 'hsl(var(--sidebar-ring))',
         },
       },
+      height: {
+        nav: 'var(--nav-height)',
+      },
+      spacing: {
+        nav: 'var(--nav-height)',
+      },
+      top: {
+        nav: 'var(--nav-height)',
+      },
+      left: {
+        nav: 'var(--nav-height)',
+      },
+      margin: {
+        nav: 'var(--nav-height)',
+      },
+      padding: {
+        nav: 'var(--nav-height)',
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',

@@ -23,7 +23,7 @@ const Navigation: React.FC<NavigationProps> = ({ className }) => {
   return (
     <nav
       className={cn(
-        'portfolio-container sticky left-0 top-0 px-4 py-6',
+        'portfolio-container sticky left-0 top-0 px-4 py-6 backdrop-blur-lg',
         className
       )}
     >
@@ -46,7 +46,7 @@ const Navigation: React.FC<NavigationProps> = ({ className }) => {
           </div>
         </Link>
 
-        <div className="hidden items-center space-x-8 rounded-md bg-accent/70 p-2 md:flex md:px-4 md:py-2">
+        <div className="hidden items-center space-x-8 rounded-md bg-muted p-2 md:flex md:px-4 md:py-2">
           <div className="flex items-center space-x-8">
             {navItems.map((item) => (
               <Link
@@ -90,10 +90,10 @@ const Navigation: React.FC<NavigationProps> = ({ className }) => {
       {/* Mobile Navigation */}
       <div
         className={cn(
-          'mt-6 overflow-hidden border-t pb-6 pt-6 transition-all duration-500 ease-out md:hidden',
+          'absolute left-0 top-nav w-full overflow-hidden border-t bg-white/80 p-6 backdrop-blur-sm transition-all duration-500 ease-out md:hidden',
           mobileMenuOpen
-            ? 'max-h-64 opacity-100'
-            : 'max-h-0 border-none opacity-0'
+            ? 'max-h-64 translate-y-0 opacity-100'
+            : 'max-h-0 -translate-y-4 border-none opacity-0'
         )}
       >
         <div className="space-y-4">
