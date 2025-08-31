@@ -17,13 +17,7 @@ const PhotoCarousel: React.FC = () => {
 //     "rounded-3xl" // super rounded
 //   ];
 
-const shapes = [
-    'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)', // Hexagon
-    'circle(50% at 50% 50%)',           // Circle
-    'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)', // Diamond
-    'circle(50% at 50% 50%)',           // Circle
-    'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)', // Hexagon
-  ]
+
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
