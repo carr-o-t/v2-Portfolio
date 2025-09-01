@@ -7,7 +7,7 @@ import { ContactMeBox } from "./ui/contact-me-box";
 
 export default function AboutMe() {
     return (
-        <div className="min-h-screen py-12 md:py-20 relative"> {/* Added 'relative' class */}
+        <div className="py-12 md:py-20 relative"> {/* Added 'relative' class */}
             <div className="max-w-6xl mx-auto px-6">
 
                 {/* New Top Section: About + Skills */}

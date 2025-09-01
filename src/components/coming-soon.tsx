@@ -9,7 +9,7 @@ interface ComingSoonProps {
 const ComingSoon = ({ page = 'default' }: ComingSoonProps) => {
     const message = comingSoonMessages[page] || comingSoonMessages.default;
     return (
-        <div className="min-h-screen py-12 md:py-20 relative">
+        <div className="py-12 md:py-20 relative">
             <div className="max-w-4xl mx-auto px-6">
                 <div className="text-center mb-16">
                     <Badge variant="outline" className="py-1 px-3 font-light border-neutral-300 text-neutral-600 mb-6">
