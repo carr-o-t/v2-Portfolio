@@ -47,6 +47,13 @@ export default {
           border: 'hsl(var(--sidebar-border))',
           ring: 'hsl(var(--sidebar-ring))',
         },
+        theme: {
+          'bg-soft': 'hsl(var(--theme-bg-soft))',
+          'box-bg': 'hsl(var(--theme-box-bg))',
+          'btn-beige': 'hsl(var(--theme-btn-beige))',
+          'btn-taupe': 'hsl(var(--theme-btn-taupe))',
+          'btn-greige': 'hsl(var(--theme-btn-greige))',
+        },
       },
       height: {
         nav: 'var(--nav-height)',

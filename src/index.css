@@ -123,6 +123,12 @@
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --theme-bg-soft: 40 25% 97.5%;           /* Very light beige background (#F8F7F4) */
+    --theme-box-bg: 40 21% 93.5%;            /* Warmer, light pastel for boxes (#ECE9E2) */
+    --theme-btn-beige: 38 32% 88%;           /* Button - beige (#E3DBC7) */
+    --theme-btn-taupe: 56 11% 89%;           /* Button - taupe (#E0DED9) */
+    --theme-btn-greige: 40 15% 95%;          /* Button - greige (#ECE8E2) */
   }
 
   .dark {
@@ -158,6 +164,12 @@
     );
     --card-shadow: 0 2px 16px -4px hsl(0 0% 0% / 0.3);
     --card-shadow-hover: 0 8px 32px -8px hsl(0 0% 0% / 0.5);
+
+    --theme-bg-soft: 40 25% 12%;             /* Very dark muted beige */
+    --theme-box-bg: 40 21% 17%;              /* Darker box shade */
+    --theme-btn-beige: 38 32% 21%;           /* Dark beige button */
+    --theme-btn-taupe: 56 11% 25%;           /* Dark taupe button */
+    --theme-btn-greige: 40 15% 22%;          /* Dark greige button */
   }
 }
 
@@ -185,7 +197,7 @@
   background-position: left center, right center;
   background-repeat: no-repeat;
   background-size: 40% auto;
-  filter: opacity(0.1);
+  filter: opacity(0.05);
   background-color: white;
 }
 
