@@ -15,7 +15,7 @@ const Navigation: React.FC<NavigationProps> = ({ className }) => {
 
   const navItems = [
     { label: 'Works', href: '/works' },
-    { label: 'CV', href: '/cv' },
+    { label: 'About Me', href: '/about-me' },
   ]
 
   const isActive = (href: string) => location.pathname === href
@@ -23,7 +23,7 @@ const Navigation: React.FC<NavigationProps> = ({ className }) => {
   return (
     <nav
       className={cn(
-        'portfolio-container sticky z-10 left-0 top-0 px-4 py-6 backdrop-blur-lg',
+        'portfolio-container sticky z-10 left-0 top-0 px-4 py-4 backdrop-blur-lg',
         className
       )}
     >
@@ -64,12 +64,12 @@ const Navigation: React.FC<NavigationProps> = ({ className }) => {
             ))}
           </div>
 
-          <a
-            href={`mailto:${personalInfo.email}`}
+          <Link
+            to={`/contact`}
             className="hidden cursor-pointer rounded-lg bg-primary/80 px-6 py-2 text-xs font-medium text-primary-foreground transition-all hover:bg-primary md:block md:text-sm"
           >
             Contact me
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -90,7 +90,7 @@ const Navigation: React.FC<NavigationProps> = ({ className }) => {
       {/* Mobile Navigation */}
       <div
         className={cn(
-          'absolute z-10 left-0 top-nav w-full overflow-hidden border-t bg-background p-6 backdrop-blur-lg transition-all duration-500 ease-out md:hidden',
+          'absolute z-10 left-0 top-nav-mb md:top-nav w-full overflow-hidden border-t bg-background p-6 backdrop-blur-lg transition-all duration-500 ease-out md:hidden',
           mobileMenuOpen
             ? 'max-h-64 translate-y-0 opacity-100'
             : 'max-h-0 -translate-y-4 border-none opacity-0'
@@ -118,8 +118,8 @@ const Navigation: React.FC<NavigationProps> = ({ className }) => {
               {item.label}
             </Link>
           ))}
-          <a
-            href={`mailto:${personalInfo.email}`}
+          <Link
+            to={`/contact`}
             className={cn(
               'block w-full cursor-pointer rounded-lg bg-primary/80 px-6 py-2 text-base font-medium text-primary-foreground transition-all duration-300 ease-out hover:bg-primary',
               mobileMenuOpen
@@ -134,7 +134,7 @@ const Navigation: React.FC<NavigationProps> = ({ className }) => {
             onClick={() => setMobileMenuOpen(false)}
           >
             Contact me
-          </a>
+          </Link>
         </div>
       </div>
     </nav>

@@ -106,7 +106,8 @@
     --text-6xl: 3.75rem;
 
     /* Nav height */
-    --nav-height: 88px;
+    --nav-height: 84px;
+    --nav-height-mb: 72px;
 
     --sidebar-background: 0 0% 98%;
 
@@ -260,4 +261,56 @@
   .masonry-item-tall {
     min-height: 250px;
   }
+}
+
+/* Marquee Animations */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-left {
+  animation-name: marquee-left;
+}
+
+.animate-marquee-right {
+  animation-name: marquee-right;
+}
+
+/* Marquee Mask Effects */
+.marquee-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.marquee-container::before,
+.marquee-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 60px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.marquee-container {
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%);
+}
+
+.box-cover-shadow {
+  box-shadow: '0px 0px 15px 15px hsl(var(--background))';
 }
