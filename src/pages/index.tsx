@@ -1,32 +1,40 @@
+import DesktopFooter from '@/components/desktop-footer'
 import Footer from '@/components/footer'
 import HeroGrid from '@/components/hero-grid'
 import Navigation from '@/components/ui/navigation'
+import { useIsMobile } from '@/hooks/use-mobile'
 
 const Index = () => {
+  const isMobile = useIsMobile();
+
   return (
     <>
-    <div className="hero-bg"></div>
-    <div className="relative z-10 min-h-screen bg">
-      <Navigation />
+      <div className="hero-bg"></div>
+      <div className="relative z-10 min-h-screen bg">
+        <Navigation />
 
 
-      {/* Hero Section */}
-      <section className="relative w-full">
-        <div className="portfolio-section pt-8">
-        <div className="portfolio-container">
-          <div className="mb-16 text-center">
-            <h1 className="mb-12 text-3xl font-medium tracking-normal text-foreground/90 lg:text-4xl">
-              Let's build it together.
-            </h1>
-            <HeroGrid />
+        {/* Hero Section */}
+        <section className="relative w-full">
+          <div className="portfolio-section pt-8 px-4">
+            <div className="portfolio-container">
+              <div className="mb-16 text-center">
+                <h1 className="mb-12 text-3xl font-medium tracking-normal text-foreground/90 lg:text-4xl">
+                  Let's build it together.
+                </h1>
+                <HeroGrid />
+              </div>
+            </div>
+
           </div>
-        </div>
+        </section>
 
-        </div>
-      </section>
 
-      <Footer />
-    </div>
+        {
+          isMobile ? <Footer /> : <DesktopFooter />
+        }
+
+      </div>
     </>
   )
 }

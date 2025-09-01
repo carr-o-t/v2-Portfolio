@@ -6,6 +6,12 @@ export interface PersonalInfo {
   email: string
   profileImage: string
   location: string
+  social_profiles: {
+    linkedin: string
+    twitter: string
+    email: string
+    github: string
+  }
   createdAt: Date
   updatedAt: Date
 }
