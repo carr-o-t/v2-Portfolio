@@ -90,7 +90,7 @@ const Navigation: React.FC<NavigationProps> = ({ className }) => {
       {/* Mobile Navigation */}
       <div
         className={cn(
-          'absolute z-10 left-0 top-nav w-full overflow-hidden border-t bg-background p-6 backdrop-blur-lg transition-all duration-500 ease-out md:hidden',
+          'absolute z-10 left-0 top-nav-mb md:top-nav w-full overflow-hidden border-t bg-background p-6 backdrop-blur-lg transition-all duration-500 ease-out md:hidden',
           mobileMenuOpen
             ? 'max-h-64 translate-y-0 opacity-100'
             : 'max-h-0 -translate-y-4 border-none opacity-0'

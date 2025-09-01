@@ -57,21 +57,27 @@ export default {
       },
       height: {
         nav: 'var(--nav-height)',
+        'nav-mb': 'var(--nav-height-mb)',
       },
       spacing: {
         nav: 'var(--nav-height)',
+        'nav-mb': 'var(--nav-height-mb)',
       },
       top: {
         nav: 'var(--nav-height)',
+        'nav-mb': 'var(--nav-height-mb)',
       },
       left: {
         nav: 'var(--nav-height)',
+        'nav-mb': 'var(--nav-height-mb)',
       },
       margin: {
         nav: 'var(--nav-height)',
+        'nav-mb': 'var(--nav-height-mb)',
       },
       padding: {
         nav: 'var(--nav-height)',
+        'nav-mb': 'var(--nav-height-mb)',
       },
       borderRadius: {
         lg: 'var(--radius)',
