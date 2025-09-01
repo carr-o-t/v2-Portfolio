@@ -15,3 +15,5 @@ export interface PersonalInfo {
   createdAt: Date
   updatedAt: Date
 }
+
+export type TSkills = string[][]
