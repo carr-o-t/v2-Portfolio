@@ -31,7 +31,7 @@ export default function AboutMe() {
                         >
                             <h3 className="text-sm font-medium text-neutral-600 mb-4">Tools & Technologies</h3>
                             <div className="space-y-2">
-                                {toolsAndTechnology.map((techGroup, groupIndex) => (
+                                {toolsAndTechnology.map((techGroup: string[], groupIndex: number) => (
                                     <div key={groupIndex} className="marquee-container overflow-hidden">
                                         <div
                                             className={`flex gap-4 animate-marquee ${groupIndex % 2 === 0 ? 'animate-marquee-left' : 'animate-marquee-right'
