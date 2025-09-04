@@ -1,0 +1,1 @@
+export const V1_PORTFOLIO_URL = "https://bytethecarrot.dev/"
