@@ -1,5 +1,7 @@
 import { Badge } from "@/components/ui/badge";
+import { V1_PORTFOLIO_URL } from "@/config";
 import { comingSoonMessages, personalInfo } from "@/entities";
+import { cn } from "@/lib/utils";
 import { Mail } from "lucide-react";
 
 interface ComingSoonProps {
@@ -9,12 +11,21 @@ interface ComingSoonProps {
 const ComingSoon = ({ page = 'default' }: ComingSoonProps) => {
     const message = comingSoonMessages[page] || comingSoonMessages.default;
     return (
-        <div className="py-12 md:py-20 relative">
+        <div className="min-h-screen py-12 md:py-20 relative">
             <div className="max-w-4xl mx-auto px-6">
-                <div className="text-center mb-16">
-                    <Badge variant="outline" className="py-1 px-3 font-light border-neutral-300 text-neutral-600 mb-6">
-                        Coming Soon
-                    </Badge>
+                <div className="text-center mb-16 space-x-4">
+                    <div className="flex flex-wrap gap-4 items-center justify-center mb-6">
+                        <Badge variant="outline" className="py-1 px-3 font-light border-neutral-300 text-neutral-600">
+                            Coming Soon
+                        </Badge>
+                        <a href={V1_PORTFOLIO_URL} target="_top" className={cn("")}>
+                            <Badge className=" py-1 px-3 font-light uppercase cursor-pointer hover:scale-105 transition-all duration-150 ease-in-out ">
+                                <span className="relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">
+                                    Check out my works on Portfolio V1 ↗
+                                </span>
+                            </Badge>
+                        </a>
+                    </div>
                     <h1 className="text-4xl lg:text-6xl font-light text-neutral-800 mb-6">
                         {message.title}
                         <span className="text-primary block"> {message.subtitle}</span>
