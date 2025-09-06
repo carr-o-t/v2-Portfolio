@@ -1,7 +1,5 @@
-import AboutMe from "@/components/about-me"
+import AboutMe from '@/components/about-me'
 
 export const AboutMePage = () => {
-    return (
-        <AboutMe />
-    )
+  return <AboutMe />
 }

@@ -1,4 +1,6 @@
-import HeroGrid from '@/components/hero-grid'
+import { lazy } from 'react'
+
+const HeroGrid = lazy(() => import('@/components/hero-grid'))
 
 const Index = () => {
   return (

@@ -125,11 +125,11 @@
 
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    --theme-bg-soft: 40 25% 97.5%;           /* Very light beige background (#F8F7F4) */
-    --theme-box-bg: 40 21% 93.5%;            /* Warmer, light pastel for boxes (#ECE9E2) */
-    --theme-btn-beige: 38 32% 88%;           /* Button - beige (#E3DBC7) */
-    --theme-btn-taupe: 56 11% 89%;           /* Button - taupe (#E0DED9) */
-    --theme-btn-greige: 40 15% 95%;          /* Button - greige (#ECE8E2) */
+    --theme-bg-soft: 40 25% 97.5%; /* Very light beige background (#F8F7F4) */
+    --theme-box-bg: 40 21% 93.5%; /* Warmer, light pastel for boxes (#ECE9E2) */
+    --theme-btn-beige: 38 32% 88%; /* Button - beige (#E3DBC7) */
+    --theme-btn-taupe: 56 11% 89%; /* Button - taupe (#E0DED9) */
+    --theme-btn-greige: 40 15% 95%; /* Button - greige (#ECE8E2) */
   }
 
   .dark {
@@ -166,11 +166,11 @@
     --card-shadow: 0 2px 16px -4px hsl(0 0% 0% / 0.3);
     --card-shadow-hover: 0 8px 32px -8px hsl(0 0% 0% / 0.5);
 
-    --theme-bg-soft: 40 25% 12%;             /* Very dark muted beige */
-    --theme-box-bg: 40 21% 17%;              /* Darker box shade */
-    --theme-btn-beige: 38 32% 21%;           /* Dark beige button */
-    --theme-btn-taupe: 56 11% 25%;           /* Dark taupe button */
-    --theme-btn-greige: 40 15% 22%;          /* Dark greige button */
+    --theme-bg-soft: 40 25% 12%; /* Very dark muted beige */
+    --theme-box-bg: 40 21% 17%; /* Darker box shade */
+    --theme-btn-beige: 38 32% 21%; /* Dark beige button */
+    --theme-btn-taupe: 56 11% 25%; /* Dark taupe button */
+    --theme-btn-greige: 40 15% 22%; /* Dark greige button */
   }
 }
 
@@ -183,7 +183,7 @@
   }
 }
 
-.masonry-item{
+.masonry-item {
   box-shadow: 0px 0px 15px 15px var(background);
 }
 
@@ -194,8 +194,12 @@
   z-index: -1;
   top: 0;
   left: 0;
-  background-image: url("https://static.tumblr.com/vsycwa1/P5Er77y51/bgdoodlesleft3.svg"), url("https://static.tumblr.com/vsycwa1/NkMr77wnp/bgdoodlesright3.svg");
-  background-position: left center, right center;
+  background-image:
+    url('https://static.tumblr.com/vsycwa1/P5Er77y51/bgdoodlesleft3.svg'),
+    url('https://static.tumblr.com/vsycwa1/NkMr77wnp/bgdoodlesright3.svg');
+  background-position:
+    left center,
+    right center;
   background-repeat: no-repeat;
   background-size: 40% auto;
   filter: opacity(0.05);
@@ -237,7 +241,7 @@
     grid-template-rows: auto;
     max-width: 400px;
   }
-  
+
   .masonry-item-main,
   .masonry-item-compact,
   .masonry-item-mentality,
@@ -245,19 +249,19 @@
     grid-column: 1;
     grid-row: auto;
   }
-  
+
   .masonry-item-main {
     min-height: 300px;
   }
-  
+
   .masonry-item-compact {
     min-height: 120px;
   }
-  
+
   .masonry-item-mentality {
     min-height: 200px;
   }
-  
+
   .masonry-item-tall {
     min-height: 250px;
   }
@@ -308,7 +312,13 @@
 }
 
 .marquee-container {
-  mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%);
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,
+    rgb(0, 0, 0) 12.5%,
+    rgb(0, 0, 0) 87.5%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
 .box-cover-shadow {

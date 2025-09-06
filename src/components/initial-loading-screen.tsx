@@ -1,20 +1,7 @@
+import { personalInfo } from '@/entities'
 import { motion } from 'framer-motion'
-import { useMemo } from 'react'
-import { useLocation } from 'react-router-dom'
 
-const LoadingScreen = () => {
-  const location = useLocation()
-  const pageName = useMemo(
-    () =>
-      location.pathname === '/'
-        ? 'Home'
-        : location.pathname
-            .slice(1)
-            .replace(/-/g, ' ')
-            .replace(/\b\w/g, (c) => c.toUpperCase()),
-    [location.pathname]
-  )
-
+const InitialLoadingScreen = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -23,6 +10,24 @@ const LoadingScreen = () => {
       className="fixed inset-0 z-50 flex items-center justify-center bg-background"
     >
       <div className="flex flex-col items-center space-y-6">
+        {/* Animated Logo/Initial */}
+        <motion.div
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{
+            duration: 0.6,
+            ease: [0.6, -0.05, 0.01, 0.99],
+          }}
+          className="relative flex h-16 w-16 items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-primary to-rose-100/60"
+        >
+          <img
+            src={personalInfo.profileImage}
+            alt={personalInfo.name}
+            className="h-full w-full object-cover transition-transform group-hover:scale-105"
+            loading="eager"
+          />
+        </motion.div>
+
         {/* Loading Text */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
@@ -30,9 +35,10 @@ const LoadingScreen = () => {
           transition={{ delay: 0.4, duration: 0.5 }}
           className="text-center"
         >
-          <h1 className="mb-2 text-2xl font-medium text-foreground/90">
-            {pageName}
-          </h1>
+          <h2 className="mb-2 text-lg font-medium text-foreground/90">
+            bytethecarrot.dev
+          </h2>
+          <p className="text-sm text-muted-foreground">Frontend Engineer</p>
         </motion.div>
 
         {/* Loading Animation */}
@@ -64,4 +70,4 @@ const LoadingScreen = () => {
   )
 }
 
-export default LoadingScreen
+export default InitialLoadingScreen

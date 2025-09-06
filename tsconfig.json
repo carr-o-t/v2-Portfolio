@@ -19,14 +19,14 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
-          "paths": {
-        "@/*": ["./src/*"],
-        "@/components/*": ["./src/components/*"],
-        "@/lib/*": ["./src/lib/*"],
-        "@/types/*": ["./src/types/*"],
-        "@/utils/*": ["./src/utils/*"],
-        "@assets/*": ["./src/assets/*"]
-      }
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/components/*": ["./src/components/*"],
+      "@/lib/*": ["./src/lib/*"],
+      "@/types/*": ["./src/types/*"],
+      "@/utils/*": ["./src/utils/*"],
+      "@assets/*": ["./src/assets/*"]
+    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

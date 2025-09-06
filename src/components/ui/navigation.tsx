@@ -1,8 +1,8 @@
 import { personalInfo } from '@/entities'
 import { cn } from '@/lib/utils'
-import { Menu, X } from 'lucide-react'
 import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { Icons } from '../Icons'
 import { Button } from './button'
 
 interface NavigationProps {
@@ -23,7 +23,7 @@ const Navigation: React.FC<NavigationProps> = ({ className }) => {
   return (
     <nav
       className={cn(
-        'portfolio-container sticky z-10 left-0 top-0 px-4 py-4 backdrop-blur-lg',
+        'portfolio-container sticky left-0 top-0 z-10 px-4 py-4 backdrop-blur-lg',
         className
       )}
     >
@@ -80,9 +80,9 @@ const Navigation: React.FC<NavigationProps> = ({ className }) => {
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? (
-            <X className="h-5 w-5" />
+            <Icons.X className="h-5 w-5" />
           ) : (
-            <Menu className="h-5 w-5" />
+            <Icons.Menu className="h-5 w-5" />
           )}
         </Button>
       </div>
@@ -90,7 +90,7 @@ const Navigation: React.FC<NavigationProps> = ({ className }) => {
       {/* Mobile Navigation */}
       <div
         className={cn(
-          'absolute z-10 left-0 top-nav-mb md:top-nav w-full overflow-hidden border-t bg-background p-6 backdrop-blur-lg transition-all duration-500 ease-out md:hidden',
+          'absolute left-0 top-nav-mb z-10 w-full overflow-hidden border-t bg-background p-6 backdrop-blur-lg transition-all duration-500 ease-out md:top-nav md:hidden',
           mobileMenuOpen
             ? 'max-h-64 translate-y-0 opacity-100'
             : 'max-h-0 -translate-y-4 border-none opacity-0'
