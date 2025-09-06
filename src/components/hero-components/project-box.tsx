@@ -1,4 +1,4 @@
-import productDesign from '@assets/project-box.webp'
+import { imagePaths } from '@/lib/utils'
 import { ImageWithSkeleton } from "../ui/image-with-skeleton"
 
 const ProjectBox = () => {
@@ -11,7 +11,7 @@ const ProjectBox = () => {
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
           /> */}
             <ImageWithSkeleton
-                src={productDesign}
+                src={imagePaths.find(img => img.key === "projectBox")?.path || ''}
                 alt="Web Development Projects"
                 className="!absolute top-0 left-0 h-full w-full"
                 rounded="rounded-3xl"

@@ -1,10 +1,10 @@
-import { Badge } from '@/components/ui/badge'
-import { toolsAndTechnology } from '@/entities'
-import moments1 from '@assets/moment-1.webp'
-import moments2 from '@assets/moment-2.webp'
-// import { ContactMeBox } from "./ui/contact-me-box";
-// import { ImageWithSkeleton } from "./ui/image-with-skeleton";
-import { lazy } from 'react'
+import { Badge } from '@/components/ui/badge';
+import { toolsAndTechnology } from '@/entities';
+import { imagePaths } from '@/lib/utils';
+import { lazy } from 'react';
+
+const moments1 = imagePaths.find(img => img.key === "moment1")?.path || '';
+const moments2 = imagePaths.find(img => img.key === "moment2")?.path || '';
 
 const ContactMeBox = lazy(() =>
   import('./ui/contact-me-box').then((module) => ({
@@ -85,11 +85,10 @@ export default function AboutMe() {
                       className="marquee-container overflow-hidden"
                     >
                       <div
-                        className={`animate-marquee flex gap-4 ${
-                          groupIndex % 2 === 0
-                            ? 'animate-marquee-left'
-                            : 'animate-marquee-right'
-                        }`}
+                        className={`animate-marquee flex gap-4 ${groupIndex % 2 === 0
+                          ? 'animate-marquee-left'
+                          : 'animate-marquee-right'
+                          }`}
                         style={{
                           animationDuration: '20s',
                           animationIterationCount: 'infinite',

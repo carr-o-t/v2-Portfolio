@@ -1,12 +1,10 @@
-import moments1 from '@assets/moment-1.webp'
-import moments2 from '@assets/moment-2.webp'
-import moments3 from '@assets/moment-3.webp'
-import moments4 from '@assets/moment-4.webp'
-import moments5 from '@assets/moment-5.webp'
+import { imagePaths } from '@/lib/utils'
 import React, { useEffect, useState } from 'react'
 import { Icons } from './Icons'
 
-const photos = [moments5, moments1, moments2, moments3, moments4]
+const photos = imagePaths
+  .filter((img) => img.key.startsWith('moment'))
+  .map((img) => img.path)
 
 const PhotoCarousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -72,9 +70,8 @@ const PhotoCarousel: React.FC = () => {
         {photos.map((_, index) => (
           <div
             key={index}
-            className={`h-1.5 w-1.5 rounded-full transition-all duration-300 ${
-              index === currentIndex ? 'bg-white' : 'bg-muted-foreground'
-            }`}
+            className={`h-1.5 w-1.5 rounded-full transition-all duration-300 ${index === currentIndex ? 'bg-white' : 'bg-muted-foreground'
+              }`}
           />
         ))}
       </div>
