@@ -1,61 +1,87 @@
-import moments1 from '@assets/moment-1.jpg';
-import moments2 from '@assets/moment-2.png';
-import moments3 from '@assets/moment-3.jpg';
-import moments4 from '@assets/moment-4.jpg';
-import moments5 from '@assets/moment-5.jpg';
-import { Heart } from 'lucide-react';
-import React, { useEffect, useState } from 'react';
+import moments1 from '@assets/moment-1.webp'
+import moments2 from '@assets/moment-2.webp'
+import moments3 from '@assets/moment-3.webp'
+import moments4 from '@assets/moment-4.webp'
+import moments5 from '@assets/moment-5.webp'
+import React, { useEffect, useState } from 'react'
+import { Icons } from './Icons'
+
+const photos = [moments5, moments1, moments2, moments3, moments4]
 
 const PhotoCarousel: React.FC = () => {
-  const photos = [moments5, moments1, moments2, moments3, moments4];
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isTransitioning, setIsTransitioning] = useState(false)
+  const [allLoaded, setAllLoaded] = useState(false)
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isTransitioning, setIsTransitioning] = useState(false);
-
+  // Preload all images before starting slideshow
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsTransitioning(true);
-      setTimeout(() => {
-        setCurrentIndex((prev) => (prev + 1) % photos.length);
-        setIsTransitioning(false);
-      }, 1600); // Longer transition for zoom effect
-    }, 6000); // Change every 10 seconds
+    let loadedCount = 0
 
-    return () => clearInterval(interval);
-  }, [photos.length]);
+    photos.forEach((src) => {
+      const img = new Image()
+      img.src = src
+      img.onload = () => {
+        loadedCount += 1
+        if (loadedCount === photos.length) {
+          setAllLoaded(true)
+        }
+      }
+    })
+  }, [photos])
+
+  // Slideshow effect
+  useEffect(() => {
+    if (!allLoaded) return // wait until all images are ready
+
+    const interval = setInterval(() => {
+      setIsTransitioning(true)
+      setTimeout(() => {
+        setCurrentIndex((prev) => (prev + 1) % photos.length)
+        setIsTransitioning(false)
+      }, 1600)
+    }, 6000)
+
+    return () => clearInterval(interval)
+  }, [photos.length, allLoaded])
 
   return (
-    <div className="relative w-full h-full overflow-hidden bg-muted flex items-center justify-center rounded-lg">
-      <div
-        className={`w-full h-full overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20`}
-      >
-        <img
-          src={photos[currentIndex]}
-          alt="Favorite moment"
-          className={`w-full h-full object-cover transition-all duration-[4000ms] ease-out ${isTransitioning ? 'opacity-0 scale-100' : 'opacity-100 scale-125'
-            }`}
-        />
-      </div>
-
-      <div className="absolute top-3 left-3 p-3 h-10 w-10 bg-accent/20 backdrop-blur-sm rounded-full">
-        <Heart className="w-4 h-4 text-red-400 fill-red-400" />
-      </div>
-
-      <div className="absolute bottom-3 left-3 text-xs text-white/80 font-medium p-3 bg-accent/20 backdrop-blur-sm rounded-full">
-        Moments
-      </div>
-
-      <div className="absolute top-3 right-3 flex space-x-1 p-3 bg-accent/20 backdrop-blur-sm rounded-full">
-        {photos.map((_, index) => (
-          <div
+    <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-lg bg-muted">
+      <div className="h-full w-full overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20">
+        {photos.map((src, index) => (
+          <img
             key={index}
-            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${index === currentIndex ? 'bg-white' : 'bg-muted-foreground'
-              }`}
+            src={src}
+            alt={`Favorite moment ${index}`}
+            className={`absolute left-0 top-0 h-full w-full object-cover transition-all duration-[4000ms] ease-out
+        ${index === currentIndex && !isTransitioning ? 'z-10 scale-125 opacity-100' : 'z-0 scale-100 opacity-0'}
+        `}
           />
         ))}
       </div>
-    </div>
-  );
-};
 
-export default PhotoCarousel;
+      {/* Overlay UI */}
+      <div className="absolute left-3 top-3 h-10 w-10 rounded-full bg-accent/20 p-3 backdrop-blur-sm">
+        <Icons.Heart className="h-4 w-4 fill-red-400 text-red-400" />
+      </div>
+
+      <div className="absolute bottom-3 left-3 rounded-full bg-accent/20 p-3 text-xs font-medium text-white/80 backdrop-blur-sm">
+        Moments
+      </div>
+
+      <div className="absolute right-3 top-3 flex space-x-1 rounded-full bg-accent/20 p-3 backdrop-blur-sm">
+        {photos.map((_, index) => (
+          <div
+            key={index}
+            className={`h-1.5 w-1.5 rounded-full transition-all duration-300 ${
+              index === currentIndex ? 'bg-white' : 'bg-muted-foreground'
+            }`}
+          />
+        ))}
+      </div>
+
+      {/* TODO: Loader UI while waiting for images */}
+    </div>
+  )
+}
+
+export default PhotoCarousel

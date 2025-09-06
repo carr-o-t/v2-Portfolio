@@ -1,7 +1,5 @@
-import ComingSoon from "@/components/coming-soon"
+import ComingSoon from '@/components/coming-soon'
 
 export const ContactMePage = () => {
-    return (
-        <ComingSoon page="contact" />
-    )
+  return <ComingSoon page="contact" />
 }

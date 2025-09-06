@@ -1,25 +1,32 @@
-import productDesign from '@assets/project-box.jpg';
-import React from 'react';
-import PhotoCarousel from './photo-carousel';
-import { ContactMeBox } from './ui/contact-me-box';
+import productDesign from '@assets/project-box.webp'
+import React from 'react'
+import PhotoCarousel from './photo-carousel'
+import { ContactMeBox } from './ui/contact-me-box'
+import { ImageWithSkeleton } from './ui/image-with-skeleton'
 
 const HeroGrid: React.FC = () => {
   return (
-    <div className="masonry-grid max-w-4xl mx-auto">
+    <div className="masonry-grid mx-auto max-w-4xl">
       {/* Main Product Design Box - Spans 2 columns and 2 rows */}
       <div className="masonry-item masonry-item-main portfolio-card group cursor-pointer ">
-
-        <div className="h-full bg-neutral-100 rounded-3xl p-6 flex flex-col justify-end relative overflow-hidden group hover:shadow-lg transition-all duration-500">
-          <img
+        <div className="group relative flex h-full flex-col justify-end overflow-hidden rounded-3xl bg-neutral-100 p-6 transition-all duration-500 hover:shadow-lg">
+          {/* <img
             src={productDesign}
             alt="Web Development Projects"
-            className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+          /> */}
+          <ImageWithSkeleton
+            src={productDesign}
+            alt="Web Development Projects"
+            className="!absolute top-0 left-0 h-full w-full"
+            rounded="rounded-3xl"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
           <div className="relative text-white">
-            <h3 className="text-xl font-medium mb-2">My Projects</h3>
-            <p className="text-sm font-light text-neutral-200 leading-relaxed">
-              Building scalable web applications and mobile solutions that solve real-world problems with clean, efficient code.
+            <h3 className="mb-2 text-xl font-medium">My Projects</h3>
+            <p className="text-sm font-light leading-relaxed text-neutral-200">
+              Building scalable web applications and mobile solutions that solve
+              real-world problems with clean, efficient code.
             </p>
           </div>
         </div>
@@ -27,25 +34,34 @@ const HeroGrid: React.FC = () => {
 
       {/* Projects Stats - Compact */}
       <div className="masonry-item masonry-item-compact portfolio-card">
-        <div className="h-full bg-muted flex flex-col justify-center items-center p-6 text-center rounded-lg hover:shadow-lg transition-all duration-500">
-          <div className="text-3xl font-bold mb-2 text-primary">08+</div>
-          <p className="text-sm text-muted-foreground">Applications Built & Deployed</p>
+        <div className="flex h-full flex-col items-center justify-center rounded-lg bg-muted p-6 text-center transition-all duration-500 hover:shadow-lg">
+          <div className="mb-2 text-3xl font-bold text-primary">08+</div>
+          <p className="text-sm text-muted-foreground">
+            Applications Built & Deployed
+          </p>
         </div>
       </div>
 
       {/* Philosophy Box */}
       <div className="masonry-item masonry-item-mentality portfolio-card">
-        <div className="h-full bg-accent p-6 flex flex-col justify-between rounded-lg hover:shadow-lg transition-all duration-500">
+        <div className="flex h-full flex-col justify-between rounded-lg bg-accent p-6 transition-all duration-500 hover:shadow-lg">
           <div>
-            <h3 className="text-lg font-semibold mb-3">Philosophy</h3>
-            <p className="text-sm text-muted-foreground mb-6 leading-relaxed">
-              Clean code, scalable architecture, and continuous optimization to deliver exceptional digital solutions.
+            <h3 className="mb-3 text-lg font-semibold">Philosophy</h3>
+            <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
+              Clean code, scalable architecture, and continuous optimization to
+              deliver exceptional digital solutions.
             </p>
           </div>
-          <div className="flex justify-center gap-2 flex-wrap">
-            <span className="px-3 py-1 bg-primary/10 rounded-full text-xs font-medium">Code</span>
-            <span className="px-3 py-1 bg-primary/10 rounded-full text-xs font-medium">Scale</span>
-            <span className="px-3 py-1 bg-primary/10 rounded-full text-xs font-medium">Optimize</span>
+          <div className="flex flex-wrap justify-center gap-2">
+            <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium">
+              Code
+            </span>
+            <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium">
+              Scale
+            </span>
+            <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium">
+              Optimize
+            </span>
           </div>
         </div>
       </div>
@@ -60,7 +76,7 @@ const HeroGrid: React.FC = () => {
         <PhotoCarousel />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default HeroGrid;
+export default HeroGrid

@@ -1,1 +1,1 @@
-export const V1_PORTFOLIO_URL = "https://bytethecarrot.dev/"
+export const V1_PORTFOLIO_URL = 'https://bytethecarrot.dev/'
