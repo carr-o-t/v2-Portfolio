@@ -1,6 +1,7 @@
 import { AnimatePresence } from 'framer-motion'
 import { Suspense, lazy, useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
+import PageTransition from './components/animations/page-transition'
 import InitialLoadingScreen from './components/initial-loading-screen'
 import LoadingScreen from './components/loading-screen'
 import { PageWrapper } from './components/page-wrapper'
@@ -28,11 +29,11 @@ const AnimatedRoutes = () => {
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Index />} />
-        <Route path="/about-me" element={<AboutMePage />} />
-        <Route path="/works" element={<WorkPage />} />
-        <Route path="/contact" element={<ContactMePage />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/" element={<PageTransition><Index /></PageTransition>} />
+        <Route path="/about-me" element={<PageTransition><AboutMePage /></PageTransition>} />
+        <Route path="/works" element={<PageTransition><WorkPage /></PageTransition>} />
+        <Route path="/contact" element={<PageTransition><ContactMePage /></PageTransition>} />
+        <Route path="*" element={<PageTransition><NotFound /></PageTransition>} />
       </Routes>
     </AnimatePresence>
   )
