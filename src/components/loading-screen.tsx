@@ -9,9 +9,9 @@ const LoadingScreen = () => {
       location.pathname === '/'
         ? 'Home'
         : location.pathname
-            .slice(1)
-            .replace(/-/g, ' ')
-            .replace(/\b\w/g, (c) => c.toUpperCase()),
+          .slice(1)
+          .replace(/-/g, ' ')
+          .replace(/\b\w/g, (c) => c.toUpperCase()),
     [location.pathname]
   )
 
@@ -20,7 +20,7 @@ const LoadingScreen = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-background"
+      className="min-h-screen flex items-center justify-center bg-background"
     >
       <div className="flex flex-col items-center space-y-6">
         {/* Loading Text */}

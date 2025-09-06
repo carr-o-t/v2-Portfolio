@@ -1,5 +1,6 @@
 import { useIsMobile } from '@/hooks/use-mobile'
-import React, { lazy } from 'react'
+import React, { lazy, Suspense } from 'react'
+import { Skeleton } from './ui/skeleton'
 
 const Navigation = lazy(() => import('./ui/navigation'))
 const Footer = lazy(() => import('./footer'))
@@ -10,9 +11,19 @@ export const PageWrapper = ({ children }: { children: React.ReactNode }) => {
     return (
         <div className="relative z-10 min-h-screen bg-background">
             <div className="hero-bg"></div>
-            <Navigation />
+            <Suspense fallback={<Skeleton className="h-nav-mb w-full md:h-nav" />}>
+                <Navigation />
+            </Suspense>
             {children}
-            {isMobile ? <Footer /> : <DesktopFooter />}
+            {isMobile ? (
+                <Suspense fallback={<div />}>
+                    <Footer />
+                </Suspense>
+            ) : (
+                <Suspense fallback={<div />}>
+                    <DesktopFooter />
+                </Suspense>
+            )}
         </div>
     )
 }
