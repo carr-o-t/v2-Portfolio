@@ -26,11 +26,11 @@ const ComingSoon = ({ page = 'default' }: ComingSoonProps) => {
                             </Badge>
                         </a>
                     </div>
-                    <h1 className="text-4xl lg:text-6xl font-light text-neutral-800 mb-6">
+                    <h1 className="text-4xl lg:text-6xl font-light text-neutral-800 mb-6 !ml-0">
                         {message.title}
                         <span className="text-primary block"> {message.subtitle}</span>
                     </h1>
-                    <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                    <p className="text-lg lg:text-xl text-muted-foreground max-w-2xl !mx-auto leading-relaxed">
                         {message.description}
                     </p>
                 </div>
