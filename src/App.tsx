@@ -1,14 +1,16 @@
 import { AnimatePresence } from 'framer-motion';
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import PageTransition from './components/animations/page-transition';
 import LoadingScreen from './components/loading-screen';
 import { PageWrapper } from './components/page-wrapper';
-import Index from './pages';
-import { AboutMePage } from './pages/about-me';
-import { ContactMePage } from './pages/contact-me';
-import NotFound from './pages/not-found';
-import { WorkPage } from './pages/works';
+
+// Lazy load all pages
+const Index = lazy(() => import('./pages'));
+const AboutMePage = lazy(() => import('./pages/about-me').then(module => ({ default: module.AboutMePage })));
+const ContactMePage = lazy(() => import('./pages/contact-me').then(module => ({ default: module.ContactMePage })));
+const WorkPage = lazy(() => import('./pages/works').then(module => ({ default: module.WorkPage })));
+const NotFound = lazy(() => import('./pages/not-found'));
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -59,7 +61,6 @@ const App = () => {
         <PageWrapper>
           <AnimatedRoutes />
         </PageWrapper>
-
       </Suspense>
     </BrowserRouter>
   );
