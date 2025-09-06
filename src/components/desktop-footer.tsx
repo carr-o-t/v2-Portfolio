@@ -17,26 +17,26 @@ const DesktopFooter: React.FC = () => {
               href={`mailto:${personalInfo.social_profiles.email}`}
               className="flex h-8 w-8 items-center justify-center rounded-full border border-muted-foreground/30 bg-theme-btn-beige/50 backdrop-blur-sm transition-colors hover:border-foreground hover:text-foreground"
             >
-              <Icons.Mail size={16} />
+              <Icons.Mail className="h-4 w-4" />
             </a>
             <a
               href={personalInfo.social_profiles.linkedin}
               className="flex h-8 w-8 items-center justify-center rounded-full border border-muted-foreground/30 bg-theme-btn-beige/50 backdrop-blur-sm transition-colors hover:border-foreground hover:text-foreground"
             >
-              <Icons.Linkedin size={16} />
+              <Icons.Linkedin className="h-4 w-4" />
             </a>
             <a
               href={personalInfo.social_profiles.github}
               className="flex h-8 w-8 items-center justify-center rounded-full border border-muted-foreground/30 bg-theme-btn-beige/50 backdrop-blur-sm transition-colors hover:border-foreground hover:text-foreground"
             >
-              <Icons.Github size={16} />
+              <Icons.Github className="h-4 w-4" />
             </a>
             {/* TODO: Find X icon */}
             {/* <a
                             href={personalInfo.social_profiles.twitter}
                             className="w-8 h-8 rounded-full border border-muted-foreground/30 flex items-center justify-center hover:border-foreground hover:text-foreground transition-colors bg-theme-btn-beige/50 backdrop-blur-sm"
                         >
-                            <Twitter size={16} />
+                            <Twitter className="h-4 w-4" />
                         </a> */}
           </div>
 
@@ -56,11 +56,10 @@ const DesktopFooter: React.FC = () => {
                 setIsHovered(false)
               }}
             >
-              <Icons.Copyright size={14} className="text-muted-foreground" />
+              <Icons.Copyright className="text-muted-foreground h-4 w-4" />
               <div
-                className={`absolute left-full ml-2 overflow-hidden rounded-full border bg-theme-btn-beige/50 p-2 backdrop-blur-sm transition-all duration-300 ease-out ${
-                  isHovered ? 'max-w-xs opacity-100' : 'max-w-0 opacity-0'
-                }`}
+                className={`absolute left-full ml-2 overflow-hidden rounded-full border bg-theme-btn-beige/50 p-2 backdrop-blur-sm transition-all duration-300 ease-out ${isHovered ? 'max-w-xs opacity-100' : 'max-w-0 opacity-0'
+                  }`}
               >
                 <span className="whitespace-nowrap text-xs text-muted-foreground">
                   2025 ByteTheCarrot.dev. All rights reserved.
