@@ -4,6 +4,7 @@ import { toolsAndTechnology } from "@/entities";
 import moments1 from '@assets/moment-1.jpg';
 import moments2 from '@assets/moment-2.png';
 import { ContactMeBox } from "./ui/contact-me-box";
+import { ImageWithSkeleton } from "./ui/image-with-skeleton";
 
 export default function AboutMe() {
     return (
@@ -58,15 +59,17 @@ export default function AboutMe() {
                     {/* Right Column: Photos + Connect */}
                     <div className="space-y-8">
                         <div className="grid grid-cols-2 gap-4">
-                            <img
+                            <ImageWithSkeleton
                                 src={moments2}
                                 alt="Portrait 1"
                                 className="rounded-2xl object-cover w-full h-48"
+                                rounded="rounded-2xl"
                             />
-                            <img
+                            <ImageWithSkeleton
                                 src={moments1}
                                 alt="Portrait 2"
                                 className="rounded-2xl object-cover w-full h-48"
+                                rounded="rounded-2xl"
                             />
                         </div>
                         <div className="">

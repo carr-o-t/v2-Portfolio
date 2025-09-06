@@ -19,8 +19,8 @@ const ComingSoon = ({ page = 'default' }: ComingSoonProps) => {
                             Coming Soon
                         </Badge>
                         <a href={V1_PORTFOLIO_URL} target="_top" className={cn("")}>
-                            <Badge className=" py-1 px-3 font-light uppercase cursor-pointer hover:scale-105 transition-all duration-150 ease-in-out ">
-                                <span className="relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full">
+                            <Badge className="group py-1 px-3 font-light uppercase cursor-pointer hover:scale-105 transition-all duration-150 ease-in-out ">
+                                <span className="relative after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-0 after:bg-current after:transition-all after:duration-300 group-hover:after:w-full">
                                     Check out my works on Portfolio V1 ↗
                                 </span>
                             </Badge>
