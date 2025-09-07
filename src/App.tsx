@@ -1,4 +1,3 @@
-import { AnimatePresence } from 'framer-motion'
 import { lazy, ReactNode, Suspense, useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
 import PageTransition from './components/animations/page-transition'
@@ -35,15 +34,13 @@ const AnimatedRoutes = () => {
   const location = useLocation()
 
   return (
-    <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<PageTransition><Index /></PageTransition>} />
-        <Route path="/about-me" element={<SuspenseFallback><AboutMePage /></SuspenseFallback>} />
-        <Route path="/works" element={<SuspenseFallback><WorkPage /></SuspenseFallback>} />
-        <Route path="/contact" element={<SuspenseFallback><ContactMePage /></SuspenseFallback>} />
-        <Route path="*" element={<SuspenseFallback><NotFound /></SuspenseFallback>} />
-      </Routes>
-    </AnimatePresence>
+    <Routes location={location} key={location.pathname}>
+      <Route path="/" element={<PageTransition><Index /></PageTransition>} />
+      <Route path="/about-me" element={<SuspenseFallback><AboutMePage /></SuspenseFallback>} />
+      <Route path="/works" element={<SuspenseFallback><WorkPage /></SuspenseFallback>} />
+      <Route path="/contact" element={<SuspenseFallback><ContactMePage /></SuspenseFallback>} />
+      <Route path="*" element={<SuspenseFallback><NotFound /></SuspenseFallback>} />
+    </Routes>
   )
 }
 
