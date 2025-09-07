@@ -65,7 +65,7 @@ bytethecarrot-v3/
 
    ```bash
    git clone <repository-url>
-   cd bytethecarrot-v3
+   cd v2-Portfolio
    ```
 
 2. **Install dependencies**
