@@ -64,7 +64,7 @@ bytethecarrot-v3/
 1. **Clone the repository**
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/carr-o-t/v2-Portfolio.git
    cd v2-Portfolio
    ```
 
