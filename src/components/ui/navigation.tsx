@@ -1,9 +1,12 @@
 import { personalInfo } from '@/entities'
 import { cn } from '@/lib/utils'
-import React, { useState } from 'react'
+import React, { lazy, Suspense, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Icons } from '../Icons'
 import { Button } from './button'
+import { Skeleton } from './skeleton'
+
+const ImageWithSkeleton = lazy(() => import('./image-with-skeleton').then(mod => ({ default: mod.ImageWithSkeleton })));
 
 interface NavigationProps {
   className?: string
@@ -30,11 +33,14 @@ const Navigation: React.FC<NavigationProps> = ({ className }) => {
       <div className="mx-auto flex max-w-6xl items-center justify-between">
         <Link to="/" className="group flex items-center space-x-4">
           <div className="h-10 w-10 overflow-hidden rounded-full bg-muted md:h-12 md:w-12">
-            <img
-              src={personalInfo.profileImage}
-              alt={personalInfo.name}
-              className="h-full w-full object-cover transition-transform group-hover:scale-105"
-            />
+            <Suspense fallback={<Skeleton className='h-full w-full rounded-full' />}>
+              <ImageWithSkeleton
+                src={personalInfo.profileImage}
+                alt={personalInfo.name}
+                className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                rounded='rounded-full'
+              />
+            </Suspense>
           </div>
           <div className="hidden md:block">
             <h1 className="text-sm font-medium tracking-tight">
