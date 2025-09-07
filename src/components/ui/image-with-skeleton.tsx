@@ -20,7 +20,7 @@ export function ImageWithSkeleton({
       {/* Skeleton */}
       {!loaded && (
         <div
-          className={`absolute inset-0 animate-pulse bg-gray-300 ${rounded}`}
+          className={`absolute inset-0 animate-pulse bg-gray-100 ${rounded}`}
         />
       )}
 
@@ -28,9 +28,8 @@ export function ImageWithSkeleton({
       <img
         src={src}
         alt={alt}
-        className={`${rounded} h-full w-full object-cover transition-opacity duration-500 ${
-          loaded ? 'opacity-100' : 'opacity-0'
-        }`}
+        className={`${rounded} h-full w-full object-cover transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'
+          }`}
         loading="lazy"
         onLoad={() => setLoaded(true)}
       />
