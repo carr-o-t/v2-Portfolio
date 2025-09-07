@@ -195,8 +195,7 @@
   top: 0;
   left: 0;
   background-image:
-    url('https://static.tumblr.com/vsycwa1/P5Er77y51/bgdoodlesleft3.svg'),
-    url('https://static.tumblr.com/vsycwa1/NkMr77wnp/bgdoodlesright3.svg');
+    url('/bgdoodlesleft3-2.webp'), url('/bgdoodlesright3-2.webp');
   background-position:
     left center,
     right center;
