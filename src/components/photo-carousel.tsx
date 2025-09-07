@@ -1,6 +1,9 @@
-import { imagePaths } from '@/lib/utils'
-import React, { useEffect, useState } from 'react'
-import { Icons } from './Icons'
+import { imagePaths } from '@/lib/utils';
+import React, { lazy, Suspense, useEffect, useState } from 'react';
+import { Icons } from './Icons';
+import { Skeleton } from './ui/skeleton';
+
+const ImageWithSkeleton = lazy(() => import('./ui/image-with-skeleton').then(mod => ({ default: mod.ImageWithSkeleton })));
 
 const photos = imagePaths
   .filter((img) => img.key.startsWith('moment'))
@@ -44,18 +47,23 @@ const PhotoCarousel: React.FC = () => {
 
   return (
     <div className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-lg bg-muted">
-      <div className="h-full w-full overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20">
-        {photos.map((src, index) => (
-          <img
-            key={index}
-            src={src}
-            alt={`Favorite moment ${index}`}
-            className={`absolute left-0 top-0 h-full w-full object-cover transition-all duration-[4000ms] ease-out
+      <Suspense fallback={<Skeleton className='h-full w-full' />}>
+        <div className="h-full w-full overflow-hidden bg-gradient-to-br from-primary/20 to-accent/20">
+          {photos.map((src, index) => (
+            //   <img
+            //     key={index}
+            //     src={src}
+            //     alt={`Favorite moment ${index}`}
+            //     className={`absolute left-0 top-0 h-full w-full object-cover transition-all duration-[4000ms] ease-out
+            // ${index === currentIndex && !isTransitioning ? 'z-10 scale-125 opacity-100' : 'z-0 scale-100 opacity-0'}
+            // `}
+            //   />
+            <ImageWithSkeleton key={index} src={src} alt={`Favorite moment ${index}`} className={`!absolute left-0 top-0 h-full w-full object-cover transition-all duration-[4000ms] ease-out
         ${index === currentIndex && !isTransitioning ? 'z-10 scale-125 opacity-100' : 'z-0 scale-100 opacity-0'}
-        `}
-          />
-        ))}
-      </div>
+        `} />
+          ))}
+        </div>
+      </Suspense>
 
       {/* Overlay UI */}
       <div className="absolute left-3 top-3 h-10 w-10 rounded-full bg-accent/20 p-3 backdrop-blur-sm">
