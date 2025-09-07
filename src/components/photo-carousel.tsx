@@ -11,9 +11,9 @@ const photos = imagePaths
   .slice(0, 3);
 
 const menuItems = [
+  { icon: 'Wave', label: 'Waves' },
   { icon: 'Flower', label: 'Flower' },
   { icon: 'Paw', label: 'Dog' },
-  { icon: 'Wave', label: 'Waves' },
 ];
 
 const PhotoCarousel: React.FC = () => {
